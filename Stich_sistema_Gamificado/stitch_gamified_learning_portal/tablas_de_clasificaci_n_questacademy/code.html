@@ -1,0 +1,326 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuestAcademy - Ranks</title>
+<!-- Google Fonts: Quicksand -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#671200",
+                    "primary-container": "#002dd6",
+                    "outline-variant": "#c5c5d8",
+                    "on-tertiary-fixed-variant": "#8a1c00",
+                    "surface-container-highest": "#e2e2e5",
+                    "primary": "#001e9b",
+                    "on-primary-container": "#aab4ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#90fd3b",
+                    "primary-fixed-dim": "#bbc3ff",
+                    "on-surface-variant": "#444656",
+                    "on-error": "#ffffff",
+                    "surface-container": "#eeeef0",
+                    "surface-variant": "#e2e2e5",
+                    "tertiary-fixed-dim": "#ffb4a2",
+                    "inverse-on-surface": "#f0f0f3",
+                    "secondary": "#346b00",
+                    "on-tertiary-container": "#ffa089",
+                    "on-secondary-fixed": "#0b2000",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#377200",
+                    "on-primary-fixed": "#000e5e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#2c49ea",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#002bcf",
+                    "surface": "#f9f9fc",
+                    "inverse-surface": "#2f3133",
+                    "on-tertiary-fixed": "#3d0700",
+                    "surface-container-low": "#f3f3f6",
+                    "secondary-fixed-dim": "#75df16",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#bbc3ff",
+                    "on-surface": "#1a1c1e",
+                    "tertiary-container": "#8f1d00",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#757687",
+                    "surface-container-high": "#e8e8ea",
+                    "background": "#f9f9fc",
+                    "surface-dim": "#dadadc",
+                    "secondary-fixed": "#90fd3b",
+                    "on-secondary-fixed-variant": "#255100",
+                    "surface-bright": "#f9f9fc",
+                    "tertiary-fixed": "#ffdad2",
+                    "primary-fixed": "#dee0ff",
+                    "on-background": "#1a1c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "24px",
+                    "stack-lg": "32px",
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "body-md": ["Quicksand"],
+                    "body-lg": ["Quicksand"],
+                    "label-lg": ["Quicksand"],
+                    "headline-xl": ["Quicksand"],
+                    "headline-lg": ["Quicksand"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #f9f9fc;
+        color: #1a1c1e;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .podium-card {
+        box-shadow: 0 16px 24px rgba(0, 45, 214, 0.1);
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .podium-card:active {
+        transform: scale(0.95);
+      }
+      .tactile-button {
+        box-shadow: 0 4px 0px #001e9b;
+        transition: all 0.1s;
+      }
+      .tactile-button:active {
+        box-shadow: 0 0px 0px #001e9b;
+        transform: translateY(4px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #c5c5d8;
+        border-radius: 10px;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface flex items-center justify-between px-container-margin py-stack-md shadow-sm">
+<div class="flex items-center gap-stack-sm"><div class="relative">
+  <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+    <img class="w-full h-full object-cover" data-alt="A friendly, high-energy 3D cartoon avatar of a young student with a joyful expression, wearing a sleek futuristic visor. The style is vibrant and playful, with soft studio lighting and a clean, light-mode background that uses shades of primary blue and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Ea5cvONX7xbL4aLy63sLOL8k4LG49tdUBH98IQ6_ekro1g7Hkk42qRqIKze9_fcki1QEAlWwJrOYjSQxrv3aVETHkcOAZD_vGYoouNOFl9OTZd77exhTG2cRgPu7Pqtcfq3mxPfLtVIRCLPy_-PSgmqlRjgwhRboC8kYZRN4jyNcWU72LI0ZlFpOgYocJWQmq-K0Ij3v69Xj1SXWB7GfiySsPf08C8DyjChOjNfWsRyuQJFNvZMRsrdNGsxnL3eixPDDH8k-QrU">
+  </div>
+  <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#6DD600] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm whitespace-nowrap font-['Quicksand']">LVL 12</div>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Juanito</h1></div>
+<div class="flex items-center gap-1 bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full border border-tertiary-fixed-dim">
+  <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+  <span class="font-bold text-tertiary text-label-lg">5</span>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-container-margin pt-stack-lg">
+<!-- Podium Section (Top 3) -->
+<div class="flex items-end justify-center gap-4 mb-stack-lg pt-8">
+<!-- Rank 2 -->
+<div class="flex flex-col items-center w-28 md:w-32">
+<div class="relative mb-2">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-outline-variant overflow-hidden bg-white podium-card" style="transform: translateY(0px) scale(1);">
+<img class="w-full h-full object-cover" data-alt="An energetic digital portrait of a female character with purple hair and cat-ear headphones, smiling confidently. The illustration is clean and high-contrast, designed for a modern educational gaming app. Soft shadows and a light blue glow accentuate the character's friendly presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJi_7lctxpAxaXM4fq0ti9SoniaLzAjvgptCsKBuaLHLUEFUhwedpg-pcDS1roUWwb5rlpkxpPK4xmuJZ8fnUbdrhL05cgQ0GehcK3PwvpjnS63KE_al-gn2s84m742peG55jTM0-i1FlhYKXxgueCr6Ot6xCLvdi5nQTn7jE0EZ00zIz-LQsFPoKU3rtasrqjAIkook29d_vrhMKN6KpOFC3I-ogf1WMzEtIN7GzvU9AFIuZmgT7zR_Smcy9684u9n0FDsXTTroE">
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-outline-variant text-white px-3 py-0.5 rounded-full font-bold text-sm">2</div>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface truncate w-full text-center">Elena_Sky</p>
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">2,450 XP</span>
+</div>
+</div>
+<!-- Rank 1 (Winner) -->
+<div class="flex flex-col items-center w-32 md:w-40 -translate-y-4">
+<div class="relative mb-3">
+
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-secondary-container overflow-hidden bg-white podium-card ring-4 ring-secondary-container/20">
+<img class="w-full h-full object-cover" data-alt="A charismatic 3D rendered student character with a golden crown, holding a digital tablet. The character has an excited expression and is surrounded by floating golden sparks. The style is polished and high-quality, similar to popular casual mobile games, set against a bright, airy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxxXFu28c6NWbi1FneIT8S2vAFWMNdZGd7tYp3JOf9sRByx-qneD8sTcgyPVWIZSF80aTriJjvb_Pn94AZj6UMkuul-Sq2KPje5WT7XF8RMpM2nbrrNCY5pcptLzq3C8kklbjWI8DOVH5V3l2cwFkIdRFEMIXe-B2oh82AjVZ6rKpHGLd7m6yN_GQCyHCoTW8xxJykb2s-hSDZVATeuDHuxu6N1qD9fIHISq9XjMvMOLMBdRyviQA3H5NDU4VtfMvseBlzZmfOubY">
+</div>
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-secondary-container text-on-secondary-fixed px-5 py-1 rounded-full font-bold text-lg shadow-lg">1</div>
+</div>
+<p class="font-headline-md text-headline-md text-primary font-bold truncate w-full text-center">QuestMaster</p>
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-body-md font-body-md">3,120 XP</span>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col items-center w-28 md:w-32">
+<div class="relative mb-2">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-tertiary-fixed-dim overflow-hidden bg-white podium-card">
+<img class="w-full h-full object-cover" data-alt="A cool digital avatar of a male character with green glasses and a yellow hoodie, looking determined. The artwork uses clean vector lines and vibrant flat colors. The background is a soft neutral grey, emphasizing the character's bright, playful aesthetic for an interactive learning platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUIEsKkd_XBqwlrXhNNTLdx2mAuShccT0P4C8i4mTbFKRCTnXJehZRMgxR_QJepwhKbStRsAtRsbwyDiNNLJpQx-OhIhijVET6EhkBBKXFHpg8nlsfKI_78oZuwXo3NyPccQBSVeTe4pZ9n0eE-z01pL3IRq64vhg7lGq3SE7N-HJejg9TleCxDQ9RaSXglF8QC3mD63rbNc7mNX2THsFHpUDPlTmDjFzvLqc8BZv101GPL7N1_Ltt-sP5uE5aLREhR-Z7hG3dazc">
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tertiary-container text-white px-3 py-0.5 rounded-full font-bold text-sm">3</div>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface truncate w-full text-center">LeoLearn</p>
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">2,100 XP</span>
+</div>
+</div>
+</div>
+<!-- Leaderboard List -->
+<div class="space-y-3 mt-stack-lg mb-8">
+<!-- Header for list -->
+<div class="flex items-center justify-between px-4 text-on-surface-variant font-label-sm uppercase tracking-widest">
+<span class="">Ranking</span>
+<span class="">Experience</span>
+</div>
+<!-- List Item 4 -->
+<div class="flex items-center bg-surface-container-lowest p-4 rounded-xl shadow-[0_8px_16px_rgba(0,45,214,0.04)] border border-surface-container hover:bg-surface-container-low transition-colors group" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<span class="w-8 font-bold text-on-surface-variant group-hover:text-primary transition-colors">4</span>
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4 border border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A vibrant 3D character avatar with a bright blue ponytail and futuristic visor, smiling warmly. The art style is crisp and friendly, featuring high-contrast lighting and soft rounded edges, perfectly fitting a gamified education app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsDuRigojvDgRwWH2gRhwkk3i-pROaCYjdZg5dqx7Nkrei6MV5EDvW4KA6LhEOcxdeEI7kpl2_I56WxaHJaX3EY6-1lt2OE2dn-gaYvxKENm8aXgiNjAVTGA4EhaujyE78PaPp5cGCWAUPqrG0RIg8oKcsM_030efkRWmU7ly2OvfoeygsI5-rbVuDFKEmhtnrt-bzb1K2olE2GgbN28ryGjJP88NrZjJJcCgVO0s7WMrJONsrQ0KN-Ps1oKErw8-X_AEzfnCIpuY">
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Sofia_Codes</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Level 18 Architect</p>
+</div>
+<div class="text-right">
+<span class="font-bold text-primary">1,890</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant ml-1">XP</span>
+</div>
+</div>
+<!-- List Item 5 -->
+<div class="flex items-center bg-surface-container-lowest p-4 rounded-xl shadow-[0_8px_16px_rgba(0,45,214,0.04)] border border-surface-container hover:bg-surface-container-low transition-colors group" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out 0.1s;">
+<span class="w-8 font-bold text-on-surface-variant group-hover:text-primary transition-colors">5</span>
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4 border border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Digital art of a young scholar character with large round glasses and a book-themed backpack. The colors are dominated by warm oranges and soft yellows, conveying a sense of curiosity and academic progress in a playful, interactive world." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfO4PfOhNJ_76YuF_vq4MDNZEIpCz68E0R4Lz94HzAbEdSopQhtfoBPj0qC8vy_KuP_9YoczuNeDnR7Qf6ol2rEosJGO5fvIxb6JXOP_e9NfhM9LvCbrfhGXmQl7xx-aNsZkjQfNn0vheESqQdZzJ71ewbT8p6DXMaeP8EQCPT9kFgvtsKUVDs8jDiyUIEUFHLEfPfEi9T_riCCX9TH__HjGjYILR__gCcpxzsraWAKhgDz_C7x7ZPDeaUQKVlDr69B06BwVxdiuY">
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Nico_Knowledge</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Level 15 Explorer</p>
+</div>
+<div class="text-right">
+<span class="font-bold text-primary">1,750</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant ml-1">XP</span>
+</div>
+</div>
+<!-- List Item 6 -->
+<div class="flex items-center bg-surface-container-lowest p-4 rounded-xl shadow-[0_8px_16px_rgba(0,45,214,0.04)] border border-surface-container hover:bg-surface-container-low transition-colors group" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out 0.2s;">
+<span class="w-8 font-bold text-on-surface-variant group-hover:text-primary transition-colors">6</span>
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4 border border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Sleek 3D character design of a student with a red cap and a mechanical arm, suggesting a tech-focused learning path. High-fidelity rendering with vibrant primary colors and soft, inviting depth effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJ_NOLtyZIBMEb6ZJerfJ_Q7M7J12GDRNpmOywd17Cvk8P_00cY9Be_HY94brAAje645FlXhDEwoPDzVmOqfcAHdNK1zgTC5amMET2w8NrqetEcyvrlFS-4CTBeO2ZrWlMvhY90UT5FH5rW3qFLynbIS5erpnGyiIDfgDegS1rsbSlwC2OOdGJDOIMenH2waVdxMccEGe80gn0kLAueheMtpMJzqFkdE_Oh-MHvRBa6HyfLH7z7Ugwj6EnCPJ1K16_P1vJ8bibxQ">
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">TechTitan</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Level 14 Coder</p>
+</div>
+<div class="text-right">
+<span class="font-bold text-primary">1,620</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant ml-1">XP</span>
+</div>
+</div>
+<!-- 'You' Indicator -->
+<div class="my-stack-md py-2 flex items-center justify-center">
+<div class="h-[1px] flex-1 bg-surface-container-highest"></div>
+<span class="mx-4 font-label-sm text-on-surface-variant uppercase bg-surface-container px-3 py-1 rounded-full">Your Position</span>
+<div class="h-[1px] flex-1 bg-surface-container-highest"></div>
+</div>
+<!-- Current User Row (Rank 42) -->
+<div class="flex items-center bg-primary-container p-4 rounded-xl shadow-lg border-2 border-primary transform scale-[1.02] ring-4 ring-primary-container/10" style="background-color: rgb(214, 48, 0); transform: scale(1.02) translateY(0px); transition: 0.4s ease-out 0.3s;" data-stitch-orig-opacity="1">
+<span class="w-8 font-bold text-on-primary-container text-white">42</span>
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-on-primary-container bg-white">
+<img class="w-full h-full object-cover" data-alt="A friendly, high-energy 3D cartoon avatar of a young student with a joyful expression, wearing a sleek futuristic visor. The style is vibrant and playful, with soft studio lighting and a clean, light-mode background that uses shades of primary blue and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjOooP5vxUOaC2VDx7UB3HBb8kxhMlmrovXmRzm1J5yFQ-SKSPTlOlaFhzUui-6mNZ8tIQ73LXPb8EZdx6xR4Pm_DVa8aB_LV6nE0EGtq-8tHMaVwLse1crJf1sjFcZIf5QclZaFH-oLyUtCStKhV8hAAXXotI_-0jg72Q3mco0CSRNcdLQkRadtUxqAXgHu99CppfR-O4WXk_z3aXedzlAjxCZHL-yBnh4Gv5UbxAOJUZtrCdGLe8eLRGiJ6kFOcnFbBbBx4OJ4w">
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-white">Tú (You)</h3>
+<p class="text-label-sm font-label-sm text-on-primary-container text-white">Level 9 Apprentice</p>
+</div>
+<div class="text-right">
+<span class="font-bold text-white text-lg">945</span>
+<span class="text-label-sm font-label-sm text-on-primary-container ml-1 text-white">XP</span>
+</div>
+</div>
+</div>
+<!-- Call to action -->
+<div class="mt-8 mb-12">
+<button class="w-full tactile-button bg-secondary-container text-on-secondary-container font-headline-md text-headline-md py-4 rounded-xl flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                ¡Gana más XP!
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-dim flex justify-around items-center px-4 pt-2 pb-6 rounded-t-xl shadow-[0_-4px_12px_rgba(0,45,214,0.08)] border-t-4 border-surface-container-highest dark:border-outline-variant"><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">home</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">explore</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-4 mb-1 shadow-[0_4px_0_0_#346b00] active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">leaderboard</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">person</span></a></nav>
+<script>
+        // Micro-interaction for podium items
+        document.querySelectorAll('.podium-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'translateY(-8px) scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Simple animation for the leaderboard items on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.group, .transform');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.4s ease-out ' + (index * 0.1) + 's';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = item.classList.contains('scale-[1.02]') ? 'scale(1.02) translateY(0)' : 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body></html>

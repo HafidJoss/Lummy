@@ -1,0 +1,308 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuestAcademy | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffdad2",
+                      "secondary": "#346b00",
+                      "surface-bright": "#f9f9fc",
+                      "on-surface": "#1a1c1e",
+                      "surface": "#f9f9fc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#8a1c00",
+                      "primary-container": "#002dd6",
+                      "outline-variant": "#c5c5d8",
+                      "on-tertiary-container": "#ffa089",
+                      "background": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f0f0f3",
+                      "inverse-surface": "#2f3133",
+                      "surface-variant": "#e2e2e5",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#671200",
+                      "tertiary-container": "#8f1d00",
+                      "on-secondary-fixed": "#0b2000",
+                      "primary": "#001e9b",
+                      "on-surface-variant": "#444656",
+                      "inverse-primary": "#bbc3ff",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb4a2",
+                      "on-primary-fixed-variant": "#002bcf",
+                      "on-secondary-fixed-variant": "#255100",
+                      "on-tertiary-fixed": "#3d0700",
+                      "on-primary-fixed": "#000e5e",
+                      "surface-container": "#eeeef0",
+                      "surface-container-low": "#f3f3f6",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e8e8ea",
+                      "secondary-fixed": "#90fd3b",
+                      "surface-dim": "#dadadc",
+                      "primary-fixed": "#dee0ff",
+                      "on-secondary-container": "#377200",
+                      "on-background": "#1a1c1e",
+                      "secondary-fixed-dim": "#75df16",
+                      "outline": "#757687",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#2c49ea",
+                      "primary-fixed-dim": "#bbc3ff",
+                      "surface-container-highest": "#e2e2e5",
+                      "on-primary-container": "#aab4ff",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#90fd3b",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "gutter": "16px",
+                      "stack-sm": "8px",
+                      "container-margin": "24px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Quicksand"],
+                      "headline-lg": ["Quicksand"],
+                      "label-sm": ["Quicksand"],
+                      "headline-xl": ["Quicksand"],
+                      "headline-lg-mobile": ["Quicksand"],
+                      "label-lg": ["Quicksand"],
+                      "body-lg": ["Quicksand"],
+                      "body-md": ["Quicksand"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9f9fc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .chunky-button {
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.1s ease;
+        }
+        .chunky-button:active {
+            border-bottom-width: 0px;
+            transform: translateY(4px);
+        }
+        .soft-tactile-shadow {
+            box-shadow: 0 16px 24px -8px rgba(0, 45, 214, 0.08);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .streak-bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky z-40 shadow-[0_16px_24px_-8px_rgba(0,45,214,0.08)]">
+<div class="flex justify-between items-center px-container-margin py-stack-md w-full max-w-[1200px] mx-auto">
+<div class="flex items-center gap-3 active:translate-y-[2px] transition-all duration-100 hover:opacity-80 cursor-pointer">
+<div class="relative">
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A portrait of a cheerful young learner named Juanito with a bright smile, wearing a modern tech-inspired hoodie. He has a stylized Level 12 badge glowing in gold and blue floating near his shoulder. The background is a soft, out-of-focus futuristic classroom with vibrant blue and white accents, matching the QuestAcademy playful aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATICAdljyXy1BkcgUNewJPw8IJMEd8WOxCS5HOMRYNH4wI4JsZ77-PSzRlMkAltPNHf7YjBwMTkXPbDl-tx7Oi_dzrpGLpHsuJ5pzAoPu3A9LqJDX2rtokhguUiOOVbB1jaWes7XSwKBU3uEHxpiOOAj42nLhNuiqftAUvpzLQU7mvW1q5obuBlqzCUnqqvFrwFYGWpPIW0w4qY34riVGIv_y1V6yjK1FTikFiNq45-tXIiNm8B6cRQfUlzI3OdPpQRM9yBKZZIFQ" style="border-color: rgb(109, 214, 0);">
+<div class="absolute -bottom-1 -right-1 bg-[#6DD600] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full border border-surface shadow-[0_0_8px_rgba(109,214,0,0.5)] flex items-center justify-center">LVL 12</div>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Lummy</h1>
+</div>
+<div class="flex items-center gap-2 bg-tertiary-fixed/20 px-3 py-1.5 rounded-full border border-tertiary-fixed/30 active:translate-y-[2px] transition-all cursor-pointer">
+  <span class="material-symbols-outlined text-tertiary streak-bounce" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+  <span class="font-bold text-on-tertiary-fixed text-label-lg">5</span>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto pb-32">
+<!-- Welcome Section -->
+<section class="px-container-margin py-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">¡Hola, Juanito!&nbsp;</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">¡Tu próxima gran aventura de conocimiento comienza ahora!</p>
+</section>
+<!-- Daily Quest Card -->
+<section class="px-container-margin mb-stack-lg">
+<div class="bg-surface-container-lowest rounded-[32px] p-6 soft-tactile-shadow border border-surface-container flex flex-col md:flex-row items-center gap-6 relative overflow-hidden group">
+<!-- Background Pattern -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary opacity-5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+<div class="w-full md:w-1/3 aspect-square max-w-[200px]">
+<img alt="Current Mission Reward" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLs72lZiTn1jT5FJdRhNVS3REMdnwcF5yIE-X5d751PsIleBAo8bwPiLGmq7PEzJhPmER5d9VZAYkyRBTi9LrOWlNYaV1_jWNtONt2n69R1FAwhgVpTyiblEwW2n-vFgY-yqoY8S60wU8hYZYQFQY8r4lt21eK6Zxi0xZ7i8QgCV0w1DQ6JxThF3M8WSJwJYYp6np1DlrPWLwJlGb09LbT8gEMwjJLAoxdOAQruIRLNqpLH4B4KL1eshe0g">
+</div>
+<div class="flex-1 w-full space-y-4">
+<div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-lg text-label-lg px-4 py-1.5 rounded-full">Misión Actual</span>
+
+
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-lg text-label-lg">
+
+<span class="text-secondary">60%</span>
+</div>
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<button class="w-full md:w-auto py-4 rounded-2xl bg-[#6DD600] text-white font-bold text-xl shadow-[0_4px_0_0_#346b00] active:translate-y-1 active:shadow-none transition-all uppercase tracking-wide flex items-center justify-center gap-2">
+  <span class="">Continuar Aventura</span>
+  <span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Dashboard -->
+<section class="px-container-margin mb-stack-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Streak Card -->
+<div class="bg-surface-container-low p-5 rounded-3xl border border-surface-container group hover:border-tertiary-container transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary streak-bounce" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Racha</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">5 Días</p>
+</div>
+<!-- XP Card -->
+<div class="bg-surface-container-low p-5 rounded-3xl border border-surface-container group hover:border-primary-container transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Total XP</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">3,120</p>
+</div>
+<!-- Quests Card -->
+<div class="bg-surface-container-low p-5 rounded-3xl border border-surface-container group hover:border-secondary transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="task_alt">task_alt</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Quests</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">24</p>
+</div>
+<!-- Rank Card -->
+<div class="bg-surface-container-low p-5 rounded-3xl border border-surface-container group hover:border-on-primary-container transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Global</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">#42</p>
+</div>
+</div>
+</section>
+<!-- Recommended Skills -->
+<section class="mb-stack-lg">
+<div class="px-container-margin flex justify-between items-end mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Explorar Habilidades</h3>
+<button class="text-primary font-label-lg text-label-lg hover:underline underline-offset-4">Ver todo</button>
+</div>
+<div class="flex gap-4 overflow-x-auto px-container-margin no-scrollbar pb-4">
+<!-- Skill 1 -->
+<div class="min-w-[160px] bg-white p-5 rounded-[28px] soft-tactile-shadow border border-surface-container-high flex flex-col items-center gap-3 cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Lógica</span>
+<span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Avanzado</span>
+</div>
+<!-- Skill 2 -->
+<div class="min-w-[160px] bg-white p-5 rounded-[28px] soft-tactile-shadow border border-surface-container-high flex flex-col items-center gap-3 cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-secondary-container/20 rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="code">code</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Código</span>
+<span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Principiante</span>
+</div>
+<!-- Skill 3 -->
+<div class="min-w-[160px] bg-white p-5 rounded-[28px] soft-tactile-shadow border border-surface-container-high flex flex-col items-center gap-3 cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="palette">palette</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Diseño</span>
+<span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Intermedio</span>
+</div>
+<!-- Skill 4 -->
+<div class="min-w-[160px] bg-white p-5 rounded-[28px] soft-tactile-shadow border border-surface-container-high flex flex-col items-center gap-3 cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+<div class="w-16 h-16 bg-surface-container-high rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="functions">functions</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Math</span>
+<span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Próximamente</span>
+</div>
+</div>
+</section>
+<!-- New Learning Tip (Contextual Card) -->
+<section class="px-container-margin mb-8">
+<div class="text-on-primary rounded-[32px] p-6 relative overflow-hidden" style="background-color: rgb(214, 48, 0); color: rgb(255, 255, 255);">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md mb-2">Tip del Día 💡</h4>
+<p class="font-body-md text-body-md opacity-90 leading-relaxed">
+                        ¿Sabías que repasar un tema 10 minutos después de aprenderlo ayuda a retener el 80% de la información? ¡Inténtalo con tu lección de hoy!
+                    </p>
+</div>
+<div class="absolute -bottom-10 -right-10 opacity-20">
+<span class="material-symbols-outlined text-[140px]" data-icon="lightbulb">lightbulb</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-dim flex justify-around items-center px-4 pt-2 pb-6 rounded-t-xl shadow-[0_-4px_12px_rgba(0,45,214,0.08)] border-t-4 border-surface-container-highest dark:border-outline-variant"><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-4 mb-1 shadow-[0_4px_0_0_#346b00] active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">home</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">explore</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">leaderboard</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">person</span></a></nav>
+<script>
+        // Micro-interactions and simple state management
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Haptic-like feedback is handled via Tailwind classes active:scale-95 or active:translate-y
+                console.log('Interaction recorded on:', el.innerText || el.getAttribute('aria-label') || 'Icon button');
+            });
+        });
+
+        // Horizontal scroll fade effect for skills
+        const skillsScroll = document.querySelector('.overflow-x-auto');
+        skillsScroll.addEventListener('scroll', () => {
+            // Optional: add logic to show/hide indicators
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body></html>

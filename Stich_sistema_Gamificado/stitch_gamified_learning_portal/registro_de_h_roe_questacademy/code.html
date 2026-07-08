@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuestAcademy - Únete a la Academia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f9f9fc",
+                    "primary": "#001e9b",
+                    "on-tertiary-container": "#ffa089",
+                    "on-secondary-fixed-variant": "#255100",
+                    "on-background": "#1a1c1e",
+                    "surface-container-low": "#f3f3f6",
+                    "surface-dim": "#dadadc",
+                    "outline-variant": "#c5c5d8",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f0f3",
+                    "surface-variant": "#e2e2e5",
+                    "on-primary-fixed-variant": "#002bcf",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1e",
+                    "on-tertiary-fixed-variant": "#8a1c00",
+                    "secondary-fixed-dim": "#75df16",
+                    "on-secondary-fixed": "#0b2000",
+                    "secondary-fixed": "#90fd3b",
+                    "surface-container-highest": "#e2e2e5",
+                    "surface-container-high": "#e8e8ea",
+                    "inverse-primary": "#bbc3ff",
+                    "primary-container": "#002dd6",
+                    "on-secondary-container": "#377200",
+                    "primary-fixed": "#dee0ff",
+                    "on-primary-fixed": "#000e5e",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#757687",
+                    "secondary": "#346b00",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9fc",
+                    "on-tertiary-fixed": "#3d0700",
+                    "tertiary-fixed": "#ffdad2",
+                    "on-primary-container": "#aab4ff",
+                    "error-container": "#ffdad6",
+                    "background": "#f9f9fc",
+                    "tertiary-fixed-dim": "#ffb4a2",
+                    "tertiary": "#671200",
+                    "inverse-surface": "#2f3133",
+                    "tertiary-container": "#8f1d00",
+                    "secondary-container": "#90fd3b",
+                    "surface-tint": "#2c49ea",
+                    "on-error": "#ffffff",
+                    "surface-container": "#eeeef0",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#bbc3ff",
+                    "on-surface-variant": "#444656",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "unit": "8px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "stack-sm": "8px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "label-lg": ["Quicksand"],
+                    "body-md": ["Quicksand"],
+                    "label-sm": ["Quicksand"],
+                    "body-lg": ["Quicksand"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9f9fc;
+            overflow-x: hidden;
+        }
+        .heroic-shadow {
+            box-shadow: 0 20px 40px -15px rgba(0, 45, 214, 0.12);
+        }
+        .chunky-button {
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 0 #001e9b;
+        }
+        .chunky-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 #001e9b;
+        }
+        .geometric-bg {
+            background-image: radial-gradient(circle at 2px 2px, #e2e2e5 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .floating-orb {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .input-hero:focus-within {
+            border-color: #002dd6;
+            box-shadow: 0 0 0 4px rgba(0, 45, 214, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center relative overflow-hidden geometric-bg">
+<!-- Subtle Background Elements -->
+<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-primary-fixed opacity-20 rounded-full blur-3xl floating-orb" style="animation-duration: 6s;"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-80 h-80 bg-secondary-fixed opacity-30 rounded-full blur-3xl floating-orb" style="animation-delay: -3s; animation-duration: 8s;"></div>
+<!-- Navigation Header (Simplified for Registration) -->
+<header class="w-full top-0 sticky bg-surface-bright/80 backdrop-blur-md z-50 border-b-2 border-surface-variant flex justify-between items-center px-container-margin py-stack-md">
+<div class="flex items-center gap-2">
+
+<span class="font-headline-md text-headline-md font-bold text-primary">Lummy</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">help</button>
+</header>
+<main class="w-full max-w-[1200px] mx-auto px-container-margin py-stack-lg flex flex-col md:flex-row items-center justify-center gap-12 flex-grow">
+<!-- Hero Visual Section -->
+<div class="hidden md:flex flex-col items-start max-w-lg space-y-stack-md">
+<div class="bg-primary-container p-6 rounded-3xl heroic-shadow relative overflow-hidden w-full aspect-square flex items-center justify-center">
+<img class="w-full h-full object-cover rounded-2xl" data-alt="A vibrant, heroic 3D digital illustration of a young student wearing a sleek blue futuristic academy uniform with a glowing crest. The character is striking a confident pose on a floating crystalline platform, surrounded by floating holographic books and glowing geometric icons. The lighting is bright and optimistic, featuring a high-contrast palette of deep blues and vivid whites, reflecting a game-like elite academy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQv7a2QJNkMSprM_FEAyBA9hdCQ89VBO7BesWgPPV0uG1sB0r-0EwXq5yUvkzGWqnt84JZ3BOGlA2BbAe5l6Pwvf7ToE4GLt9rEmUbAh8YYSOPG25RjfDDGER5wgeTAALt3BmJ79wzRV21llqrOOGs4Dd4fiFMdopCp0fD48NwTy1ynE57e_jFpGDxw7372wSF5SXyOjqrxr7V1oVF3hsbw_uG6VjYclHmZHBvSjrZ-9riWwKuw0w4l4H0z0WuYxoZB-0IP0whXvc">
+</div>
+<div class="space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Únete a la Academia</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Conviértete en el protagonista de tu propio camino de aprendizaje. Gana XP, desbloquea insignias y domina nuevas habilidades.</p>
+</div>
+</div>
+<!-- Registration Card -->
+<section class="w-full max-w-md bg-surface-container-lowest rounded-[2rem] p-8 md:p-10 heroic-shadow border border-surface-variant relative z-10">
+<div class="mb-stack-lg text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-2">¿Estás listo?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Crea tu perfil para empezar en tu propia aventura.</p>
+</div>
+<!-- Form -->
+<form class="space-y-stack-md" onsubmit="return false">
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface ml-1">Nombre de Guerrero</label>
+<div class="input-hero flex items-center bg-surface-container-low border-2 border-outline-variant rounded-xl px-4 py-3 transition-all duration-200">
+<span class="material-symbols-outlined text-outline mr-3">badge</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface placeholder:text-outline/60" placeholder="Ej. Alex Pendragon" type="text">
+</div>
+</div>
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface ml-1">Correo Galáctico</label>
+<div class="input-hero flex items-center bg-surface-container-low border-2 border-outline-variant rounded-xl px-4 py-3 transition-all duration-200">
+<span class="material-symbols-outlined text-outline mr-3">mail</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface placeholder:text-outline/60" placeholder="heroe@academia.com" type="email">
+</div>
+</div>
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg text-on-surface ml-1">Código Secreto</label>
+<div class="input-hero flex items-center bg-surface-container-low border-2 border-outline-variant rounded-xl px-4 py-3 transition-all duration-200">
+<span class="material-symbols-outlined text-outline mr-3">lock</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-on-surface placeholder:text-outline/60" placeholder="Tu contraseña" type="password">
+</div>
+</div>
+<button class="chunky-button w-full h-[56px] text-white font-headline-md text-headline-md rounded-2xl flex items-center justify-center gap-2 mt-stack-md" style="background-color: rgb(109, 214, 0); box-shadow: rgb(74, 145, 0) 0px 4px 0px 0px;">
+<span class="">Crear Cuenta</span>
+<span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-stack-lg">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-surface-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm">
+<span class="bg-surface-container-lowest px-4 text-outline font-label-sm uppercase tracking-widest">O únete con</span>
+</div>
+</div>
+<!-- Social Signup -->
+<div class="flex justify-center gap-4">
+<button class="flex items-center justify-center gap-2 border-2 border-outline-variant rounded-xl py-3 px-8 hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmvoOLB3dTS0k-SbYgVv7JQnFRku9leqXIzfVVWrlbHlNjs39x8X53fh7yYUR-TmekvbBlQvIJmqkZq8_JJ_5B0WUgojO0-3K8FmdQoRsG5rYYF2KmcB-BUaa_A7h_IkGFzKnGaIBGAEVVZMyYeIjUdR9dEYxnHiTW3bJnevXcy5BnQxSU1-8FubDR-Jq1PNW5CGnCsZlz--yD8nhY9Nxcf1iL4Cfxn5JSfe7MwrX-vGZNBGtgPnIzU-VacCa_hkn6m6an4Ub7rUk">
+<span class="font-label-lg text-on-surface">Google</span>
+</button>
+</div>
+<!-- Footer -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    ¿Ya eres un jugador? 
+                    <a class="text-primary font-bold hover:underline ml-1" href="#">Inicia Sesión</a>
+</p>
+</div>
+</section>
+</main>
+<!-- Footer Stats / Floating Gamification -->
+<div class="w-full max-w-[1200px] mx-auto px-container-margin py-stack-md flex justify-center md:justify-start">
+
+</div>
+<!-- Hidden Mobile Nav (Suppressed per logic for transactional screen) -->
+<script>
+        // Micro-interaction for input fields
+        const inputs = document.querySelectorAll('.input-hero input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('border-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('border-primary');
+            });
+        });
+
+        // Floating elements animation variability
+        document.querySelectorAll('.floating-orb').forEach((orb, index) => {
+            orb.style.animationDuration = (6 + index * 2) + 's';
+        });
+    </script>
+
+
+</body></html>

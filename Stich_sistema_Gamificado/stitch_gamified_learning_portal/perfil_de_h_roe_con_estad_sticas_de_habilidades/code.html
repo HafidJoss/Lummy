@@ -1,0 +1,239 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Hero Profile - QuestAcademy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bbc3ff",
+                        "background": "#f9f9fc",
+                        "surface-container": "#eeeef0",
+                        "on-error": "#ffffff",
+                        "outline": "#757687",
+                        "on-tertiary-fixed": "#3d0700",
+                        "surface-container-high": "#e8e8ea",
+                        "primary": "#001e9b",
+                        "secondary": "#346b00",
+                        "secondary-fixed": "#90fd3b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#8f1d00",
+                        "on-tertiary-container": "#ffa089",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#255100",
+                        "surface-bright": "#f9f9fc",
+                        "on-primary-container": "#aab4ff",
+                        "surface-tint": "#2c49ea",
+                        "on-primary-fixed": "#000e5e",
+                        "inverse-on-surface": "#f0f0f3",
+                        "secondary-fixed-dim": "#75df16",
+                        "primary-fixed": "#dee0ff",
+                        "on-tertiary-fixed-variant": "#8a1c00",
+                        "outline-variant": "#c5c5d8",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#0b2000",
+                        "on-secondary-container": "#377200",
+                        "on-background": "#1a1c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f3f6",
+                        "surface": "#f9f9fc",
+                        "secondary-container": "#90fd3b",
+                        "tertiary-fixed": "#ffdad2",
+                        "surface-dim": "#dadadc",
+                        "on-surface-variant": "#444656",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "inverse-surface": "#2f3133",
+                        "inverse-primary": "#bbc3ff",
+                        "surface-variant": "#e2e2e5",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#002dd6",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface": "#1a1c1e",
+                        "on-primary-fixed-variant": "#002bcf",
+                        "tertiary": "#671200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "label-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "body-md": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9f9fc;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .squishy-press:active {
+            transform: scale(0.95);
+            transition: transform 0.1s;
+        }
+        .soft-tactile-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 45, 214, 0.08), 0 8px 10px -6px rgba(0, 45, 214, 0.08);
+        }
+        .chunky-border {
+            border-bottom-width: 4px;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(0, 45, 214, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(109, 214, 0, 0.05) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<main class="max-w-md mx-auto px-container-margin hero-gradient">
+<!-- Profile Section -->
+<section class="flex flex-col items-center py-stack-lg animate-fade-in relative"><button aria-label="Edit Profile" class="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg squishy-press z-50" style="background-color: #D63000;"><span class="material-symbols-outlined">edit</span></button>
+<div class="relative group">
+<div class="w-32 h-32 rounded-full border-4 border-white soft-tactile-shadow overflow-hidden bg-surface-container-high transition-transform duration-300 group-hover:scale-105">
+<img class="w-full h-full object-cover" data-alt="A high-quality 3D claymorphic character portrait of a friendly young explorer with a bright smile, wearing a blue questing cap and goggles. The lighting is soft and optimistic, set against a vibrant blue-to-green gradient background that matches the QuestAcademy brand identity. The style is clean, modern, and gamified with thick, smooth shapes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWO4HuFCx9sawpRIl8VJrlae0PAILVe7fYj4xY44DTkX37Fm8TFctUmEEk180Y1QIr8Ttv52WzQwloTt_efutNL1Wu20r_2ky0jsTqTW-ne0f7SWZh8UevmhaQ8liOaIA0T10lJ51TUHaZTTc4VGrP1oDL-mq0efCimo51J6W8MuTyVlY9q1bF1SkfWlGkfM62WKu9EhBWoZI2O7dCC1Fz_M72eHUW0C6j-MlErorCws2XvIds5xuhZ-4bjCLkUGQdTbx2M172hOk">
+</div>
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-secondary chunky-border border-secondary-fixed text-white px-3 py-1 rounded-full font-label-lg text-label-lg shadow-lg z-10" style="background-color: rgb(109, 214, 0);">Lvl 12</div>
+</div>
+<h2 class="mt-stack-md font-headline-lg-mobile text-headline-lg-mobile text-on-background">Juanito</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Elite Explorer</p>
+</section>
+<!-- Progress Section -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl soft-tactile-shadow mb-stack-lg border border-outline-variant">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Level 12 Progress</span>
+<span class="font-label-sm text-label-sm text-primary">945 / 1200 XP</span>
+</div>
+<div class="w-full h-4 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full relative" style="width: 78%;">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+</div>
+</div>
+<p class="mt-3 font-label-sm text-label-sm text-center text-on-surface-variant">Only <span class="text-secondary font-bold">255 XP</span> to reach Level 13!</p>
+</section><section class="bg-surface-container-lowest p-stack-md rounded-xl soft-tactile-shadow mb-stack-lg border border-outline-variant">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant mb-4">Skills de Juanito</h3>
+<div class="flex justify-center items-center py-2">
+<svg class="w-full max-w-[240px] h-auto overflow-visible" viewBox="0 0 200 200">
+<!-- Background Pentagons -->
+<polygon fill="none" points="100,20 176,75 147,165 53,165 24,75" stroke="#e2e2e5" stroke-width="1"></polygon>
+<polygon fill="none" points="100,45 152,83 132,145 68,145 48,83" stroke="#e2e2e5" stroke-width="1"></polygon>
+<polygon fill="none" points="100,70 128,91 117,125 83,125 72,91" stroke="#e2e2e5" stroke-width="1"></polygon>
+<!-- Axes -->
+<line stroke="#e2e2e5" stroke-width="1" x1="100" x2="100" y1="100" y2="20"></line>
+<line stroke="#e2e2e5" stroke-width="1" x1="100" x2="176" y1="100" y2="75"></line>
+<line stroke="#e2e2e5" stroke-width="1" x1="100" x2="147" y1="100" y2="165"></line>
+<line stroke="#e2e2e5" stroke-width="1" x1="100" x2="53" y1="100" y2="165"></line>
+<line stroke="#e2e2e5" stroke-width="1" x1="100" x2="24" y1="100" y2="75"></line>
+<!-- Data Polygon (QuestAcademy Blue #002dd6) -->
+<polygon fill="rgba(214, 48, 0, 0.2)" points="100,35 160,85 135,150 65,140 40,80" stroke="#D63000" stroke-width="2"></polygon>
+<!-- Labels -->
+<text class="font-label-sm" style="font-size: 10px; fill: #444656;" text-anchor="middle" x="100" y="12">Lógica</text>
+<text class="font-label-sm" style="font-size: 10px; fill: #444656;" text-anchor="start" x="185" y="75">Diseño</text>
+<text class="font-label-sm" style="font-size: 10px; fill: #444656;" text-anchor="middle" x="155" y="180">Código</text>
+<text class="font-label-sm" style="font-size: 10px; fill: #444656;" text-anchor="middle" x="45" y="180">Estrategia</text>
+<text class="font-label-sm" style="font-size: 10px; fill: #444656;" text-anchor="end" x="15" y="75">Comunidad</text>
+</svg>
+</div>
+</section>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-2 gap-4 mb-stack-lg">
+<div class="bg-surface-container-lowest p-4 rounded-xl soft-tactile-shadow border border-outline-variant squishy-press flex flex-col items-center justify-center text-center" style="transform: translateY(0px); border-bottom-width: 4px;">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center mb-2 animate-bounce">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Racha</span>
+<span class="font-headline-md text-headline-md text-tertiary-container">5 días</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl soft-tactile-shadow border border-outline-variant squishy-press flex flex-col items-center justify-center text-center" style="transform: translateY(0px); border-bottom-width: 4px;">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total XP</span>
+<span class="font-headline-md text-headline-md text-primary">3,120</span>
+</div>
+<div class="col-span-2 bg-surface-container-lowest p-4 rounded-xl soft-tactile-shadow border border-outline-variant squishy-press flex items-center gap-6" style="transform: translateY(0px); border-bottom-width: 4px;">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Misiones Completadas</span>
+<span class="font-headline-md text-headline-md text-on-background">24</span>
+</div>
+<span class="ml-auto material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</div><div class="bg-surface-container-lowest p-4 rounded-xl soft-tactile-shadow border border-outline-variant mb-4 squishy-press flex items-center justify-between" style="border-bottom-width: 4px; transform: translateY(0px);"><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary">dark_mode</span></div><div><span class="font-label-lg text-label-lg text-on-background block">Modo Oscuro</span><span class="font-label-sm text-label-sm text-on-surface-variant">Cambiar apariencia</span></div></div><div class="w-12 h-6 bg-surface-container-high rounded-full relative p-1 cursor-pointer"><div class="w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></div></div></div>
+<!-- Achievements Section -->
+<section class="mb-stack-lg">
+</section>
+<div class="bg-surface-container-lowest p-4 rounded-xl soft-tactile-shadow border border-outline-variant mb-stack-lg squishy-press flex items-center justify-center cursor-pointer" style="border-bottom-width: 4px; transform: translateY(0px); background-color: rgb(65, 87, 43);"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-white">logout</span><span class="font-label-lg text-label-lg text-white">Cerrar Sesión</span></div></div></main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-dim flex justify-around items-center px-4 pt-2 pb-6 rounded-t-xl shadow-[0_-4px_12px_rgba(0,45,214,0.08)] border-t-4 border-surface-container-highest dark:border-outline-variant"><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">home</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">explore</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">leaderboard</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-4 mb-1 shadow-[0_4px_0_0_#346b00] active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">person</span></a></nav>
+<script>
+        // Simple micro-interactions for the cards
+        document.querySelectorAll('.squishy-press').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'translateY(2px)';
+                card.style.borderBottomWidth = '0px';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translateY(0px)';
+                card.style.borderBottomWidth = '4px';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+                card.style.borderBottomWidth = '4px';
+            });
+        });
+
+        // Horizontal scroll improvements
+        const scrollContainer = document.querySelector('.no-scrollbar');
+        if (scrollContainer) {
+            scrollContainer.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+            });
+        }
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,33 @@
+name: mobile_app
+description: Gamified POO Learning System
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '^3.4.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.0.0
+  go_router: ^13.0.0
+  flutter_riverpod: ^2.0.0
+  flutter_secure_storage: ^9.0.0
+  equatable: ^2.0.0
+  json_annotation: ^4.8.0
+  rive: ^0.12.0
+  google_fonts: ^6.2.1
+  image_picker: ^1.2.3
+  mime: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.0
+  json_serializable: ^6.7.0
+  riverpod_generator: ^2.0.0
+
+flutter:
+  uses-material-design: true

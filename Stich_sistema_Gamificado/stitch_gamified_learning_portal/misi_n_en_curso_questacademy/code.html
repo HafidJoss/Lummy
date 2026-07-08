@@ -1,0 +1,279 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9f9fc;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Tactical "Squishy" Button Effect */
+        .btn-chunky {
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-bottom-width: 4px;
+        }
+        .btn-chunky:active {
+            transform: translateY(2px);
+            border-bottom-width: 0px;
+            margin-bottom: 4px;
+        }
+        /* Custom Progress Fill */
+        .progress-fill {
+            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        /* Floating Animation for gamified elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#255100",
+                        "on-background": "#1a1c1e",
+                        "inverse-on-surface": "#f0f0f3",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary": "#001e9b",
+                        "on-tertiary-container": "#ffa089",
+                        "on-surface-variant": "#444656",
+                        "surface-container": "#eeeef0",
+                        "surface": "#f9f9fc",
+                        "on-secondary-fixed": "#0b2000",
+                        "tertiary-container": "#8f1d00",
+                        "surface-dim": "#dadadc",
+                        "surface-bright": "#f9f9fc",
+                        "background": "#f9f9fc",
+                        "on-secondary-container": "#377200",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c5d8",
+                        "inverse-primary": "#bbc3ff",
+                        "surface-container-low": "#f3f3f6",
+                        "on-tertiary-fixed": "#3d0700",
+                        "tertiary": "#671200",
+                        "primary-fixed": "#dee0ff",
+                        "on-primary-container": "#aab4ff",
+                        "inverse-surface": "#2f3133",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#002bcf",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "tertiary-fixed": "#ffdad2",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e5",
+                        "secondary": "#346b00",
+                        "primary-fixed-dim": "#bbc3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#8a1c00",
+                        "on-primary-fixed": "#000e5e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#002dd6",
+                        "outline": "#757687",
+                        "surface-container-high": "#e8e8ea",
+                        "secondary-fixed-dim": "#75df16",
+                        "secondary-fixed": "#90fd3b",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#2c49ea",
+                        "secondary-container": "#90fd3b",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-sm": "8px",
+                        "container-margin": "24px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "label-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "body-md": ["Quicksand"],
+                        "body-lg": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background dark:bg-background shadow-[0px_8px_16px_rgba(0,45,214,0.08)]">
+
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-xl text-on-primary shadow-lg hover:brightness-110 transition-all active:translate-y-1" style="background-color: rgb(214, 48, 0);"><span class="material-symbols-outlined">close</span></button></header>
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-container-margin py-stack-md pb-32">
+<!-- Mission Header Section -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-2">
+<div>
+<p class="text-primary font-label-lg text-label-lg uppercase tracking-wider mb-1">Misión Actual</p>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background">Fundamentos de Lógica</h1>
+</div>
+<div class="flex gap-2 mb-1">
+<div class="flex items-center bg-surface-container-high px-3 py-1.5 rounded-xl border-b-2 border-outline-variant">
+<span class="material-symbols-outlined text-error mr-1" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-lg text-label-lg text-on-surface">3</span>
+</div>
+<div class="flex items-center bg-surface-container-high px-3 py-1.5 rounded-xl border-b-2 border-outline-variant">
+<span class="material-symbols-outlined text-primary-container mr-1">schedule</span>
+<span class="font-label-lg text-label-lg text-on-surface" id="timer">02:25</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-4 bg-surface-container-highest rounded-full overflow-hidden shadow-inner">
+<div class="progress-fill h-full bg-secondary-container" style="width: 60%">
+<div class="w-full h-1/3 bg-white/20"></div>
+</div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Progreso del desafío</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 / 5 preguntas</span>
+</div>
+</section>
+<!-- Challenge Area -->
+<section class="relative">
+<!-- Background Decorative Element -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse"></div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[32px] p-stack-lg shadow-[0px_16px_32px_rgba(0,45,214,0.06)] relative overflow-hidden">
+<!-- Question Title -->
+<div class="mb-stack-lg">
+<span class="inline-block bg-primary-fixed text-on-primary-fixed px-4 py-1 rounded-full font-label-sm text-label-sm mb-4">DESAFÍO #3</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">¿Cuál es el resultado de la siguiente operación lógica?</h2>
+<!-- Code Snippet / Puzzle Visual -->
+<div class="bg-on-surface text-surface rounded-2xl p-6 font-mono text-body-md shadow-lg border-l-4 border-primary-container">
+<p class="mb-2"><span class="text-secondary-fixed-dim">let</span> a = <span class="text-tertiary-fixed-dim">true</span>;</p>
+<p class="mb-2"><span class="text-secondary-fixed-dim">let</span> b = <span class="text-tertiary-fixed-dim">false</span>;</p>
+<p class=""><span class="text-secondary-fixed-dim">console</span>.<span class="text-primary-fixed">log</span>(a &amp;&amp; !b);</p>
+</div>
+</div>
+<!-- Multiple Choice Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-stack-md">
+<button class="option-btn group flex items-center p-4 rounded-2xl border-2 border-outline-variant bg-surface-container hover:bg-surface-container-high hover:border-primary-container transition-all text-left btn-chunky border-surface-dim" onclick="selectOption(this)">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center font-bold text-primary group-hover:scale-110 transition-transform shadow-sm mr-4">A</div>
+<span class="font-body-lg text-body-lg text-on-surface">true</span>
+</button>
+<button class="option-btn group flex items-center p-4 rounded-2xl border-2 border-outline-variant bg-surface-container hover:bg-surface-container-high hover:border-primary-container transition-all text-left btn-chunky border-surface-dim" onclick="selectOption(this)">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center font-bold text-primary group-hover:scale-110 transition-transform shadow-sm mr-4">B</div>
+<span class="font-body-lg text-body-lg text-on-surface">false</span>
+</button>
+<button class="option-btn group flex items-center p-4 rounded-2xl border-2 border-outline-variant bg-surface-container hover:bg-surface-container-high hover:border-primary-container transition-all text-left btn-chunky border-surface-dim" onclick="selectOption(this)">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center font-bold text-primary group-hover:scale-110 transition-transform shadow-sm mr-4">C</div>
+<span class="font-body-lg text-body-lg text-on-surface">undefined</span>
+</button>
+<button class="option-btn group flex items-center p-4 rounded-2xl border-2 border-outline-variant bg-surface-container hover:bg-surface-container-high hover:border-primary-container transition-all text-left btn-chunky border-surface-dim" onclick="selectOption(this)">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center font-bold text-primary group-hover:scale-110 transition-transform shadow-sm mr-4">D</div>
+<span class="font-body-lg text-body-lg text-on-surface">Error de sintaxis</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Action Button -->
+<div class="fixed bottom-24 left-0 w-full px-container-margin md:static md:px-0 md:mt-stack-lg z-40">
+<div class="max-w-[1200px] mx-auto flex justify-center">
+<button class="w-full md:w-auto md:min-w-[320px] text-on-primary font-label-lg text-label-lg py-5 px-12 rounded-2xl btn-chunky hover:brightness-110 transition-all uppercase tracking-widest flex items-center justify-center gap-2" onclick="confirmAnswer()" style="background-color: rgb(214, 48, 0); --tw-shadow-color: #8a1c00; box-shadow: 0px 8px 0px 0px var(--tw-shadow-color);">
+<span class="">Confirmar Respuesta</span>
+<span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-dim flex justify-around items-center px-4 pt-2 pb-6 rounded-t-xl shadow-[0_-4px_12px_rgba(0,45,214,0.08)] border-t-4 border-surface-container-highest dark:border-outline-variant"><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">home</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-4 mb-1 shadow-[0_4px_0_0_#346b00] active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">explore</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">leaderboard</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">person</span></a></nav>
+<!-- Interaction Script -->
+<script>
+        function selectOption(btn) {
+            // Reset all options
+            document.querySelectorAll('.option-btn').forEach(b => {
+                b.classList.remove('border-primary-container', 'bg-primary-fixed', 'ring-4', 'ring-primary/10');
+                b.classList.add('border-surface-dim', 'bg-surface-container');
+            });
+            
+            // Highlight selected
+            btn.classList.remove('border-surface-dim', 'bg-surface-container');
+            btn.classList.add('border-primary-container', 'bg-primary-fixed', 'ring-4', 'ring-primary/10');
+            
+            // Add a little pop effect
+            btn.classList.add('scale-[1.02]');
+            setTimeout(() => btn.classList.remove('scale-[1.02]'), 100);
+        }
+
+        function confirmAnswer() {
+            const selected = document.querySelector('.option-btn.bg-primary-fixed');
+            if (!selected) {
+                alert("Por favor, selecciona una opción para continuar.");
+                return;
+            }
+            
+            // Mock visual feedback for "Correct"
+            const isCorrect = selected.innerText.includes('true'); // Simple logic for demo
+            
+            if (isCorrect) {
+                selected.classList.remove('bg-primary-fixed', 'border-primary-container');
+                selected.classList.add('bg-secondary-container', 'border-secondary');
+                
+                // Add success toast or transition logic here
+                const btnContent = document.querySelector('button[onclick="confirmAnswer()"] span:first-child');
+                btnContent.innerText = "¡Correcto! Siguiente";
+                document.querySelector('button[onclick="confirmAnswer()"]').classList.remove('bg-primary-container', 'shadow-[#001e9b]');
+                document.querySelector('button[onclick="confirmAnswer()"]').classList.add('bg-secondary', 'shadow-[#255100]');
+            } else {
+                selected.classList.remove('bg-primary-fixed', 'border-primary-container');
+                selected.classList.add('bg-error-container', 'border-error');
+            }
+        }
+
+        // Timer simulation
+        let time = 292; // 4:52
+        setInterval(() => {
+            time--;
+            const mins = Math.floor(time / 60);
+            const secs = time % 60;
+            document.getElementById('timer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }, 1000);
+    </script>
+
+
+
+
+</body></html>

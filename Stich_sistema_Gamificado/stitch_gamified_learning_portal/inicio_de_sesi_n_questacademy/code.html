@@ -1,0 +1,261 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuestAcademy - Iniciar Sesión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dee0ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#90fd3b",
+                    "surface-container-highest": "#e2e2e5",
+                    "outline": "#757687",
+                    "surface-container-low": "#f3f3f6",
+                    "on-tertiary-container": "#ffa089",
+                    "surface": "#f9f9fc",
+                    "surface-tint": "#2c49ea",
+                    "on-surface": "#1a1c1e",
+                    "secondary-container": "#90fd3b",
+                    "surface-variant": "#e2e2e5",
+                    "background": "#f9f9fc",
+                    "primary-fixed-dim": "#bbc3ff",
+                    "on-surface-variant": "#444656",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#8f1d00",
+                    "secondary": "#346b00",
+                    "surface-container-high": "#e8e8ea",
+                    "tertiary-fixed": "#ffdad2",
+                    "inverse-on-surface": "#f0f0f3",
+                    "on-background": "#1a1c1e",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#002dd6",
+                    "surface-dim": "#dadadc",
+                    "on-secondary-container": "#377200",
+                    "on-secondary-fixed-variant": "#255100",
+                    "on-tertiary-fixed-variant": "#8a1c00",
+                    "tertiary": "#671200",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#000e5e",
+                    "primary": "#001e9b",
+                    "secondary-fixed-dim": "#75df16",
+                    "outline-variant": "#c5c5d8",
+                    "on-primary-fixed-variant": "#002bcf",
+                    "on-primary-container": "#aab4ff",
+                    "on-tertiary-fixed": "#3d0700",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3133",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container": "#eeeef0",
+                    "on-secondary-fixed": "#0b2000",
+                    "tertiary-fixed-dim": "#ffb4a2",
+                    "inverse-primary": "#bbc3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "16px",
+                    "xl": "24px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "stack-lg": "32px",
+                    "unit": "8px",
+                    "container-margin": "24px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Quicksand"],
+                    "label-lg": ["Quicksand"],
+                    "headline-xl": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "label-sm": ["Quicksand"],
+                    "body-md": ["Quicksand"],
+                    "body-lg": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Tactile Button Effect */
+        .btn-chunky {
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn-chunky:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating Background Shapes */
+        .shape {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(40px, 60px) rotate(15deg); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex flex-col relative">
+<!-- Background Decoration -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<svg class="shape w-32 h-32 text-primary top-10 left-10" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="currentColor" r="40"></circle>
+</svg>
+<svg class="shape w-48 h-48 text-secondary top-1/4 -right-10" style="animation-delay: -5s;" viewBox="0 0 100 100">
+<polygon fill="currentColor" points="50,15 90,85 10,85"></polygon>
+</svg>
+<svg class="shape w-40 h-40 text-tertiary-container bottom-10 left-1/4" style="animation-delay: -10s;" viewBox="0 0 100 100">
+<rect fill="currentColor" height="60" rx="10" width="60" x="20" y="20"></rect>
+</svg>
+<svg class="shape w-24 h-24 text-primary-fixed-variant bottom-1/4 right-1/3" style="animation-delay: -15s;" viewBox="0 0 100 100">
+<path d="M50 10 L90 50 L50 90 L10 50 Z" fill="currentColor"></path>
+</svg>
+</div>
+<!-- Top Navigation Header (Filtered for Login Screen - Branding Only) -->
+<header class="w-full top-0 sticky bg-surface flex justify-center items-center px-container-margin py-stack-md z-50">
+<div class="flex items-center gap-2">
+
+<span class="font-headline-md text-headline-md font-bold text-primary">Lummy</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center px-container-margin py-stack-lg">
+<div class="w-full max-w-md">
+<!-- Hero Header -->
+<div class="text-center mb-stack-lg">
+<div class="inline-flex p-4 rounded-full bg-primary-fixed mb-stack-md shadow-sm">
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="shield_person" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">
+                    ¡Bienvenido!
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">¡Aprendamos de programacion juntos!</p>
+</div>
+<!-- Login Form Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-[0_16px_32px_rgba(0,45,214,0.08)] glass-card">
+<form class="space-y-stack-md" id="loginForm" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="space-y-1">
+<label class="font-label-lg text-label-lg text-on-surface-variant ml-1" for="email">Correo Electrónico</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface rounded-lg border-2 border-outline-variant focus:border-primary-container focus:ring-0 font-body-md text-body-md transition-all placeholder:text-outline-variant" id="email" placeholder="tu@academia.com" required="" type="email">
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-lg text-label-lg text-on-surface-variant" for="password">Contraseña</label>
+<a class="font-label-sm text-label-sm text-tertiary hover:underline" href="#">¿Olvidaste tu contraseña?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-12 pr-12 py-4 bg-surface rounded-lg border-2 border-outline-variant focus:border-primary-container focus:ring-0 font-body-md text-body-md transition-all placeholder:text-outline-variant" id="password" placeholder="••••••••" required="" type="password">
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface-variant" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-[#6DD600] text-white font-headline-md text-headline-md py-4 rounded-lg btn-chunky flex items-center justify-center gap-2 mt-stack-lg group" type="submit">
+<span class="">Iniciar Misión</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="send">send</span>
+</button>
+</form>
+<!-- Social Logins -->
+<div class="mt-stack-lg">
+<div class="relative flex items-center mb-stack-md">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-sm text-label-sm text-on-surface-variant">o continúa con</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<div class="flex justify-center">
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface border-2 border-outline-variant rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-colors active:translate-y-0.5">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEP-UTK-RM_zlywJwliUiNsiv-HtMRwiZOcN9asWIIJeTVJCYKI64QhQu88FBeY4uQnzITCY3zYSzDLQLHSVtuzlL0PH6AusYMZ3pWTIbKQtam0zEz4Y3saxVi5X4ddCFILF4azFPRXzVYfgEMjIC4yrggQ7qmYPr1Z91k5cGpQ5VVz3XFkGkjS1m67o4DUxbSfqLNcpCGmGFn6sBtUs1olusMFaqEJJOJnatQvnfgdGVcv1hwVbLeeRj4nx3L7bJ_XoVaY4P73lA">
+<span class="">Google</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Onboarding Prompt -->
+<p class="text-center mt-stack-lg font-body-md text-body-md text-on-surface-variant">
+                ¿Eres nuevo? 
+                <a class="font-bold text-primary hover:underline ml-1" href="#">Únete a la Academia</a>
+</p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant bg-surface-container-low flex flex-col md:flex-row justify-between items-center px-container-margin gap-stack-md mt-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-md text-headline-md text-primary font-bold">Lummy</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Lummy. ¡Sigue Aprendiendo!</span>
+</div>
+<div class="flex gap-stack-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ayuda</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for input focus
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.02]');
+                input.parentElement.parentElement.classList.transition = 'all 0.2s ease';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.02]');
+            });
+        });
+
+        // Simple button press log for demonstration
+        document.querySelector('form').addEventListener('submit', () => {
+            console.log('Mission started!');
+        });
+    </script>
+
+
+</body></html>

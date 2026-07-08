@@ -1,0 +1,214 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>QuestAcademy - Misiones</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .press-effect:active {
+            transform: translateY(4px);
+            box-shadow: none !important;
+        }
+        .chunky-shadow {
+            box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+        }
+        .bg-pattern {
+            background-color: #f9f9fc;
+            background-image: radial-gradient(#dee0ff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#90fd3b",
+                        "on-secondary-fixed-variant": "#255100",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeef0",
+                        "on-surface": "#1a1c1e",
+                        "on-background": "#1a1c1e",
+                        "outline": "#757687",
+                        "on-primary-fixed": "#000e5e",
+                        "surface-variant": "#e2e2e5",
+                        "surface-bright": "#f9f9fc",
+                        "surface-container-high": "#e8e8ea",
+                        "on-tertiary-container": "#ffa089",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f3f6",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3133",
+                        "on-tertiary-fixed": "#3d0700",
+                        "error-container": "#ffdad6",
+                        "surface": "#f9f9fc",
+                        "on-secondary-container": "#377200",
+                        "on-primary-fixed-variant": "#002bcf",
+                        "primary-fixed": "#dee0ff",
+                        "primary": "#001e9b",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bbc3ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad2",
+                        "tertiary-container": "#8f1d00",
+                        "surface-dim": "#dadadc",
+                        "secondary-container": "#90fd3b",
+                        "on-surface-variant": "#444656",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "tertiary": "#671200",
+                        "on-primary-container": "#aab4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#75df16",
+                        "surface-container-highest": "#e2e2e5",
+                        "inverse-on-surface": "#f0f0f3",
+                        "primary-container": "#002dd6",
+                        "surface-tint": "#2c49ea",
+                        "secondary": "#346b00",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c5c5d8",
+                        "inverse-primary": "#bbc3ff",
+                        "on-secondary-fixed": "#0b2000",
+                        "on-tertiary-fixed-variant": "#8a1c00",
+                        "background": "#f9f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "8px",
+                        "lg": "16px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "container-margin": "24px",
+                        "unit": "8px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-xl": ["Quicksand"],
+                        "body-md": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "headline-lg": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-pattern min-h-screen text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-on-surface shadow-sm flex justify-between items-center px-container-margin py-stack-sm h-16">
+<div class="flex items-center gap-stack-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A friendly, high-quality 3D stylized avatar of a young student wearing high-tech learning goggles, set against a soft blue gradient background. The avatar is circular and features a vibrant gold level badge with the number twelve prominently displayed in the corner. The lighting is cinematic and warm, conveying a sense of achievement and playfulness in a modern educational tech environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHbDW6qx8IpPSIPUn4HlscH1D9Jy-SDH7JvKvmlOYoAwDZ4hfYFGSaM_AIzExTsARWvcAOCecemn5qubCHDZDyMTYKq-uBreDZRKkl4Bs7AmJ-lzYdKOgM5mmfTM3RHzHGLuegwm6ObYUMRoeZHpfmjGe_jmIfwJwS3nqs8eqkSIlWiwK6yVTqS1bIGeknyLrolHUxq0vxz_d-eQzMXRXqbV4DkSX9W-QbyTsKeX78ouFk88NGgyXsx8DKn1BO4iUCUlWMKUOGzTU">
+<div class="absolute -bottom-1 -right-1 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold px-1.5 rounded-full border border-surface shadow-sm">LVL 12</div>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Juanito</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center text-tertiary-container bg-tertiary-fixed px-3 py-1 rounded-full gap-1 active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-lg text-label-lg">5</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-margin max-w-lg mx-auto">
+<!-- Hero Progress Section -->
+<section class="mb-stack-lg">
+<div class="bg-surface-container-lowest rounded-xl p-stack-md shadow-[0_8px_24px_rgba(0,45,214,0.08)] border border-surface-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">insights</span>
+</div>
+<div class="flex justify-between items-end mb-stack-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Tu Progreso</h2>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Faltan 250 XP para Nivel 13</p>
+</div>
+<div class="flex items-center bg-tertiary-fixed text-tertiary-container px-3 py-1 rounded-lg animate-bounce">
+<span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-lg text-label-lg">5 días</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-full overflow-hidden mb-2">
+<div class="h-full rounded-full transition-all duration-1000 ease-out" style="width: 75%; background-color: rgb(214, 48, 0);"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline uppercase tracking-wider">
+<span class="">Nivel 12</span>
+<span class="">Nivel 13</span>
+</div>
+</div>
+</section>
+<!-- Mission Selection Header -->
+<div class="flex justify-between items-center mb-stack-md">
+
+
+</div>
+<!-- Mission Grid -->
+<div class="grid gap-stack-md">
+<!-- Mission 1: Fundamentos de Código -->
+
+<!-- Mission 2: Diseño de Héroe -->
+
+<!-- Mission 3: Maestría de Datos (Locked) -->
+
+</div><section class="py-stack-lg flex flex-col items-center gap-stack-md">
+  <div class="w-full max-w-[280px] mx-auto animate-float">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX6i_6HYZ-Ckw3UlFYKYxSRZ_t43PvX-wKyaXKd27NVQhDcquKm5yIhd3952Aw7QlZvvfSusr_YcfZaDxEEDFQNQR2I__eJE-S_P3uCuXffV1Ct6xNBiClfkFGqnLtKOfoTRQGs9uhjHxEFLi6lskvuddCrA47xLSu3DKTqmelD4qBP9KpnW2cJqEJGFFX3by4Nm6vikeDvuswHz4Bjt1DfKLXf7lxsxm2ScxMTxvuVIh-vBpV3f4Sj5lV-yxO8I_FrAtnZWWIGeo" alt="Cofre de tesoro de QuestAcademy" class="w-full h-auto object-contain">
+  </div>
+  <button class="w-full max-w-xs mx-auto py-4 rounded-2xl bg-[#6DD600] text-white font-bold text-xl shadow-[0_4px_0_0_#346b00] active:translate-y-1 active:shadow-none transition-all uppercase tracking-wide">
+    Iniciar reto
+  </button>
+</section>
+<!-- Suggestion Card -->
+
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-dim flex justify-around items-center px-4 pt-2 pb-6 rounded-t-xl shadow-[0_-4px_12px_rgba(0,45,214,0.08)] border-t-4 border-surface-container-highest dark:border-outline-variant"><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">home</span></a><a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-4 mb-1 shadow-[0_4px_0_0_#346b00] active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">explore</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">leaderboard</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:translate-y-1 transition-all duration-100" href="#"><span class="material-symbols-outlined text-headline-md">person</span></a></nav>
+<script>
+        // Micro-interactions for mission cards
+        document.querySelectorAll('.press-effect').forEach(card => {
+            card.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        icon.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
