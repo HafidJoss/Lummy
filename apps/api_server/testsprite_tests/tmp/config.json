@@ -1,0 +1,19 @@
+{
+  "status": "commited",
+  "type": "backend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:8000",
+  "backendAuthType": "Bearer token",
+  "backendCredential": "QwOkrhbq3MflN6MF.dTvRvY0bTKGH3gDb9cWBVjiW4Q15hN8OEF2rqMYUpbenSDUOSluteaAgYwQpb1DBcyEuhz+cNK9NIAYXDqxYK6+vjPHDCtLgChNK43hBLOrLMTHriIpsX4qgKz9IoReybmU0XOUsXL+hpmPF4KENluJiW7/xCAaAHJastJFkLXr0Hgp8vc8Q0syrj8EUQBgHWMAJCM36nDtDhO6h2DMun23sW4XObb7kub1L7Unn/F9vPDAyIkj1yOkPKVulSRnPjrkPXP/rqbjdEgmtdP4wbg/v0WUj0qZl52TOLG+s1DGRPnOgIW31UiFdA7LyNdYh0qbfZMMhj/zs19An3uXh6cbKUtb8xeatWvc7LjwbkQ==",
+  "executionArgs": {
+    "projectName": "api_server",
+    "projectPath": "c:/Users/PC/Desktop/Final zapata/apps/api_server",
+    "testIds": [],
+    "additionalInstruction": "Para los endpoints de login, asegúrate de enviar 'email' y no 'username' en el body JSON. Verifica que la respuesta contenga 'access_token'. En el TC003, NO uses tokens falsos; primero haz un POST a /api/v1/auth/login para obtener un token real dinámicamente y úsalo en el GET. En la respuesta del usuario de TC003, no busques la clave 'username', solo 'id', 'email' y 'full_name'.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-01Y6J3RPQxB_aCL8rgdB-Xp3sa5ZLVL5n_fGlsONfS_VYuzjnlozw_3RKIbK3e6fxW-RkLLbylspbEy1XNKOWTR5tfdZ82OcSfmlnBZWhSRRj4KoS8cUJy8t1ImobjTGOKE"
+    }
+  },
+  "serverPort": 56264
+}

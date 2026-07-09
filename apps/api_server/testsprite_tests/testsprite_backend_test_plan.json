@@ -1,0 +1,22 @@
+[
+  {
+    "id": "TC001",
+    "title": "post api v1 auth login with valid credentials",
+    "description": "Verify that a user can successfully log in by sending a POST request to /api/v1/auth/login with valid username and password, receiving a 200 response with a JWT token."
+  },
+  {
+    "id": "TC002",
+    "title": "post api v1 auth login with invalid credentials",
+    "description": "Verify that a login attempt with invalid username or password to /api/v1/auth/login returns a 401 unauthorized response and no token is issued."
+  },
+  {
+    "id": "TC003",
+    "title": "get api v1 users me with valid token",
+    "description": "Verify that an authenticated user can retrieve their profile by sending a GET request to /api/v1/users/me with a valid JWT token, receiving a 200 response with user information."
+  },
+  {
+    "id": "TC004",
+    "title": "get api v1 users me without token or invalid token",
+    "description": "Verify that accessing /api/v1/users/me without a token or with an invalid token returns a 401 unauthorized response and no user profile data is returned."
+  }
+]
