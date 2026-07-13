@@ -11,3 +11,4 @@ passlib[bcrypt]>=1.7.4
 google-genai>=0.1.0
 python-dotenv>=1.0.0
 redis>=5.0.0
+email-validator
