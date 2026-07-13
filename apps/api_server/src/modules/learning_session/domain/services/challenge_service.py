@@ -5,13 +5,13 @@ import uuid
 from typing import List, Dict, Any
 from datetime import datetime, timezone
 
-from apps.api_server.src.modules.learning_session.infrastructure.persistence.models import (
+from src.modules.learning_session.infrastructure.persistence.models import (
     ChallengeSession, SessionQuestion, Question, QuestionOption, SessionAnswer
 )
-from apps.api_server.src.modules.learning_session.infrastructure.ai.gemini_client import generate_poo_questions
-from apps.api_server.src.modules.gamification.domain.services.xp_service import XPService
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.learning_session.application.dto.challenge_dtos import AnswerRequest, AnswerResponse
+from src.modules.learning_session.infrastructure.ai.gemini_client import generate_poo_questions
+from src.modules.gamification.domain.services.xp_service import XPService
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.learning_session.application.dto.challenge_dtos import AnswerRequest, AnswerResponse
 
 XP_PER_CORRECT = 5
 XP_PER_WRONG = 5

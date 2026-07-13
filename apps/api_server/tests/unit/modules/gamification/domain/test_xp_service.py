@@ -3,8 +3,8 @@ from unittest.mock import AsyncMock, MagicMock
 import uuid
 from decimal import Decimal
 
-from apps.api_server.src.modules.gamification.domain.services.xp_service import XPService
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile, XpLedger, LevelRule
+from src.modules.gamification.domain.services.xp_service import XPService
+from src.modules.gamification.infrastructure.persistence.models import UserProfile, XpLedger, LevelRule
 
 @pytest.fixture
 def mock_session():

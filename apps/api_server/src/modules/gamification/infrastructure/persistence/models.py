@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from sqlalchemy import CheckConstraint
 from sqlalchemy.sql import func
-from apps.api_server.src.shared.infrastructure.db.base import Base
+from src.shared.infrastructure.db.base import Base
 
 class LevelRule(Base):
     __tablename__ = "level_rules"

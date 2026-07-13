@@ -3,10 +3,10 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import uuid
 from datetime import datetime, timezone
 
-from apps.api_server.src.modules.identity_access.domain.services.auth_service import AuthService
-from apps.api_server.src.modules.identity_access.infrastructure.persistence.models import User
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.identity_access.application.dto.auth_dtos import (
+from src.modules.identity_access.domain.services.auth_service import AuthService
+from src.modules.identity_access.infrastructure.persistence.models import User
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.identity_access.application.dto.auth_dtos import (
     RegisterRequest, LoginRequest, RefreshRequest
 )
 
@@ -19,7 +19,7 @@ def auth_service(mock_session):
     return AuthService(session=mock_session)
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.get_password_hash')
+@patch('src.modules.identity_access.domain.services.auth_service.get_password_hash')
 async def test_should_register_user_successfully(mock_hash, auth_service, mock_session):
     # Arrange
     request = RegisterRequest(email="test@example.com", password="password123", full_name="Test User")
@@ -61,9 +61,9 @@ async def test_should_fail_register_when_email_exists(auth_service, mock_session
     assert exc.value.code == "EMAIL_IN_USE"
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.verify_password')
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.create_access_token')
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.create_refresh_token')
+@patch('src.modules.identity_access.domain.services.auth_service.verify_password')
+@patch('src.modules.identity_access.domain.services.auth_service.create_access_token')
+@patch('src.modules.identity_access.domain.services.auth_service.create_refresh_token')
 async def test_should_login_user_successfully(mock_create_refresh, mock_create_access, mock_verify, auth_service, mock_session):
     # Arrange
     request = LoginRequest(email="test@example.com", password="password123")
@@ -106,7 +106,7 @@ async def test_should_fail_login_invalid_credentials(auth_service, mock_session)
     assert exc.value.code == "INVALID_CREDENTIALS"
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.verify_password')
+@patch('src.modules.identity_access.domain.services.auth_service.verify_password')
 async def test_should_fail_login_inactive_user(mock_verify, auth_service, mock_session):
     # Arrange
     request = LoginRequest(email="test@example.com", password="password123")
@@ -127,8 +127,8 @@ async def test_should_fail_login_inactive_user(mock_verify, auth_service, mock_s
     assert exc.value.code == "USER_INACTIVE"
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.decode_token')
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.create_access_token')
+@patch('src.modules.identity_access.domain.services.auth_service.decode_token')
+@patch('src.modules.identity_access.domain.services.auth_service.create_access_token')
 async def test_should_refresh_token_successfully(mock_create_access, mock_decode, auth_service):
     # Arrange
     request = RefreshRequest(refresh_token="valid_refresh")
@@ -142,7 +142,7 @@ async def test_should_refresh_token_successfully(mock_create_access, mock_decode
     assert result.access_token == "new_access_token"
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.identity_access.domain.services.auth_service.decode_token')
+@patch('src.modules.identity_access.domain.services.auth_service.decode_token')
 async def test_should_fail_refresh_invalid_token(mock_decode, auth_service):
     # Arrange
     request = RefreshRequest(refresh_token="invalid_refresh")

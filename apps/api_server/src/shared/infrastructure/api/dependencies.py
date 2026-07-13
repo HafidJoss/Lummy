@@ -3,9 +3,9 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 from collections.abc import AsyncGenerator
 
-from apps.api_server.src.shared.infrastructure.db.base import async_session_maker
-from apps.api_server.src.shared.infrastructure.security.jwt_service import decode_token
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
+from src.shared.infrastructure.db.base import async_session_maker
+from src.shared.infrastructure.security.jwt_service import decode_token
+from src.shared.infrastructure.api.exceptions import APIException
 
 security = HTTPBearer()
 

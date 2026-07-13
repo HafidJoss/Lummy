@@ -4,7 +4,7 @@ import uuid
 from typing import Optional
 from decimal import Decimal
 
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile, XpLedger, LevelRule
+from src.modules.gamification.infrastructure.persistence.models import UserProfile, XpLedger, LevelRule
 
 class XPService:
     def __init__(self, session: AsyncSession):

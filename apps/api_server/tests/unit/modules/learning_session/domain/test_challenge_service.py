@@ -3,11 +3,11 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import uuid
 from decimal import Decimal
 
-from apps.api_server.src.modules.learning_session.domain.services.challenge_service import ChallengeService
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile
-from apps.api_server.src.modules.learning_session.infrastructure.persistence.models import SessionQuestion, SessionAnswer, QuestionOption, Question, ChallengeSession
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.learning_session.application.dto.challenge_dtos import AnswerRequest
+from src.modules.learning_session.domain.services.challenge_service import ChallengeService
+from src.modules.gamification.infrastructure.persistence.models import UserProfile
+from src.modules.learning_session.infrastructure.persistence.models import SessionQuestion, SessionAnswer, QuestionOption, Question, ChallengeSession
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.learning_session.application.dto.challenge_dtos import AnswerRequest
 
 @pytest.fixture
 def mock_session():
@@ -20,7 +20,7 @@ def challenge_service(mock_session):
     return service
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.learning_session.domain.services.challenge_service.generate_poo_questions')
+@patch('src.modules.learning_session.domain.services.challenge_service.generate_poo_questions')
 async def test_should_start_challenge_and_create_session(mock_generate, challenge_service, mock_session):
     # Arrange
     user_id = uuid.uuid4()
@@ -48,7 +48,7 @@ async def test_should_start_challenge_and_create_session(mock_generate, challeng
     assert result["questions"][0]["stem"] == "Question 1"
 
 @pytest.mark.asyncio
-@patch('apps.api_server.src.modules.learning_session.domain.services.challenge_service.generate_poo_questions')
+@patch('src.modules.learning_session.domain.services.challenge_service.generate_poo_questions')
 async def test_should_fail_start_challenge_when_ai_fails(mock_generate, challenge_service, mock_session):
     # Arrange
     user_id = uuid.uuid4()

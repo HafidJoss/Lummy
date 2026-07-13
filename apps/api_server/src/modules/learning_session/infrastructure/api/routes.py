@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 import uuid
 
-from apps.api_server.src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
-from apps.api_server.src.modules.learning_session.application.dto.challenge_dtos import (
+from src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
+from src.modules.learning_session.application.dto.challenge_dtos import (
     StartChallengeResponse, AnswerRequest, AnswerResponse, FinishChallengeResponse
 )
-from apps.api_server.src.modules.learning_session.domain.services.challenge_service import ChallengeService
+from src.modules.learning_session.domain.services.challenge_service import ChallengeService
 
 challenge_router = APIRouter(prefix="/api/v1/challenge", tags=["Challenge"])
 

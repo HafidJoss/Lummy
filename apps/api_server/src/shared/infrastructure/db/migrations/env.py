@@ -10,14 +10,14 @@ project_root = str(Path(__file__).resolve().parents[7])
 sys.path.insert(0, project_root)
 
 # Importar modelos y base
-from apps.api_server.src.shared.infrastructure.db.base import Base
+from src.shared.infrastructure.db.base import Base
 
-import apps.api_server.src.modules.identity_access.infrastructure.persistence.models
-import apps.api_server.src.modules.gamification.infrastructure.persistence.models
-import apps.api_server.src.modules.learning_session.infrastructure.persistence.models
-import apps.api_server.src.modules.leaderboard.infrastructure.readmodel.models
-import apps.api_server.src.modules.analytics_research.infrastructure.persistence.models
-import apps.api_server.src.shared.infrastructure.messaging.models
+import src.modules.identity_access.infrastructure.persistence.models
+import src.modules.gamification.infrastructure.persistence.models
+import src.modules.learning_session.infrastructure.persistence.models
+import src.modules.leaderboard.infrastructure.readmodel.models
+import src.modules.analytics_research.infrastructure.persistence.models
+import src.shared.infrastructure.messaging.models
 
 config = context.config
 

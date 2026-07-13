@@ -3,14 +3,14 @@ from sqlalchemy.future import select
 import uuid
 from datetime import datetime, timezone
 
-from apps.api_server.src.modules.identity_access.infrastructure.persistence.models import User, UserAuthSession
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile
-from apps.api_server.src.shared.infrastructure.security.jwt_service import (
+from src.modules.identity_access.infrastructure.persistence.models import User, UserAuthSession
+from src.modules.gamification.infrastructure.persistence.models import UserProfile
+from src.shared.infrastructure.security.jwt_service import (
     get_password_hash, verify_password, create_access_token, create_refresh_token, 
     decode_token, ACCESS_TOKEN_EXPIRE_MINUTES
 )
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.identity_access.application.dto.auth_dtos import (
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.identity_access.application.dto.auth_dtos import (
     RegisterRequest, LoginRequest, TokenResponse, RefreshRequest, RefreshResponse
 )
 

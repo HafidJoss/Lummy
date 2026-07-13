@@ -5,13 +5,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy import func
 
-from apps.api_server.src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.identity_access.application.dto.auth_dtos import RegisterRequest, LoginRequest, TokenResponse, AuthUserResponse, UserResponse, UpdateProfileRequest
-from apps.api_server.src.modules.identity_access.domain.services.auth_service import AuthService
-from apps.api_server.src.modules.identity_access.infrastructure.persistence.models import User
-from apps.api_server.src.modules.gamification.domain.services.xp_service import XPService
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile
+from src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.identity_access.application.dto.auth_dtos import RegisterRequest, LoginRequest, TokenResponse, AuthUserResponse, UserResponse, UpdateProfileRequest
+from src.modules.identity_access.domain.services.auth_service import AuthService
+from src.modules.identity_access.infrastructure.persistence.models import User
+from src.modules.gamification.domain.services.xp_service import XPService
+from src.modules.gamification.infrastructure.persistence.models import UserProfile
 
 auth_router = APIRouter(prefix="/api/v1/auth", tags=["Auth"])
 

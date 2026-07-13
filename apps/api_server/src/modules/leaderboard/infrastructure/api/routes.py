@@ -4,11 +4,11 @@ from sqlalchemy.future import select
 from sqlalchemy import desc, func
 import math
 
-from apps.api_server.src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
-from apps.api_server.src.modules.leaderboard.application.dto.leaderboard_dtos import (
+from src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
+from src.modules.leaderboard.application.dto.leaderboard_dtos import (
     LeaderboardResponse, LeaderboardEntry, MyLeaderboardPosition
 )
-from apps.api_server.src.modules.gamification.infrastructure.persistence.models import UserProfile
+from src.modules.gamification.infrastructure.persistence.models import UserProfile
 
 leaderboard_router = APIRouter(prefix="/api/v1/leaderboard", tags=["Leaderboard"])
 

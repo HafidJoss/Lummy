@@ -5,10 +5,10 @@ from sqlalchemy.future import select
 import uuid
 from datetime import datetime, timezone
 
-from apps.api_server.src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException
-from apps.api_server.src.modules.analytics_research.application.dto.analytics_dtos import TestAttemptRequest, TestAttemptResponse
-from apps.api_server.src.modules.analytics_research.infrastructure.persistence.models import PrepostTestAttempt
+from src.shared.infrastructure.api.dependencies import get_db_session, get_current_user
+from src.shared.infrastructure.api.exceptions import APIException
+from src.modules.analytics_research.application.dto.analytics_dtos import TestAttemptRequest, TestAttemptResponse
+from src.modules.analytics_research.infrastructure.persistence.models import PrepostTestAttempt
 
 analytics_router = APIRouter(prefix="/api/v1/analytics", tags=["Analytics & Research"])
 

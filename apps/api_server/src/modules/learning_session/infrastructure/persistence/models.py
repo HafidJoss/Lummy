@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID, JSONB
 import uuid
 from sqlalchemy import CheckConstraint
 from sqlalchemy.sql import func
-from apps.api_server.src.shared.infrastructure.db.base import Base
+from src.shared.infrastructure.db.base import Base
 
 class QuestionTopic(Base):
     __tablename__ = "question_topics"
