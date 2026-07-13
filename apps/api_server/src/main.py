@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
-from apps.api_server.src.shared.infrastructure.api.exceptions import APIException, api_exception_handler, global_exception_handler
+from src.shared.infrastructure.api.exceptions import APIException, api_exception_handler, global_exception_handler
 
 app = FastAPI(
     title="Gamified POO AI System",
@@ -20,17 +20,17 @@ app.add_middleware(
 )
 
 # Servir archivos estáticos
-os.makedirs("apps/api_server/static", exist_ok=True)
-app.mount("/static", StaticFiles(directory="apps/api_server/static"), name="static")
+os.makedirs("static", exist_ok=True)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Manejador global de errores
 app.add_exception_handler(APIException, api_exception_handler)
 app.add_exception_handler(Exception, global_exception_handler)
 
-from apps.api_server.src.modules.identity_access.infrastructure.api.routes import auth_router, users_router
-from apps.api_server.src.modules.learning_session.infrastructure.api.routes import challenge_router
-from apps.api_server.src.modules.leaderboard.infrastructure.api.routes import leaderboard_router
-from apps.api_server.src.modules.analytics_research.infrastructure.api.routes import analytics_router
+from src.modules.identity_access.infrastructure.api.routes import auth_router, users_router
+from src.modules.learning_session.infrastructure.api.routes import challenge_router
+from src.modules.leaderboard.infrastructure.api.routes import leaderboard_router
+from src.modules.analytics_research.infrastructure.api.routes import analytics_router
 
 app.include_router(auth_router)
 app.include_router(users_router)
