@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, UploadFile, File
+from fastapi import APIRouter, Depends, UploadFile, File, Request
 import os
 import shutil
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -94,6 +94,7 @@ async def update_profile(
 
 @users_router.post("/me/avatar", response_model=dict)
 async def upload_avatar(
+    request: Request,
     file: UploadFile = File(...),
     current_user: dict = Depends(get_current_user),
     session: AsyncSession = Depends(get_db_session)
@@ -107,11 +108,15 @@ async def upload_avatar(
     filename = f"{current_user['user_id']}.{ext}"
     filepath = os.path.join("apps/api_server/static/avatars", filename)
     
+    # Asegurarnos de que la carpeta existe antes de guardar
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    
     with open(filepath, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
         
-    # Usar http://127.0.0.1:8000 si está en local. En producción sería la URL real.
-    avatar_url = f"http://127.0.0.1:8000/static/avatars/{filename}"
+    # Construir la URL dinámicamente según el servidor donde esté corriendo (Railway o Local)
+    base_url = str(request.base_url).rstrip("/")
+    avatar_url = f"{base_url}/static/avatars/{filename}"
     profile.avatar_url = avatar_url
     await session.commit()
     
