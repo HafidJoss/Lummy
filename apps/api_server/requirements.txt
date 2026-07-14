@@ -13,4 +13,4 @@ python-dotenv>=1.0.0
 redis>=5.0.0
 email-validator
 python-multipart
-python-multipart
+cloudinary

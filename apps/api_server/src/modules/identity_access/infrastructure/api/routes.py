@@ -1,6 +1,10 @@
 from fastapi import APIRouter, Depends, UploadFile, File, Request
 import os
 import shutil
+import cloudinary
+import cloudinary.uploader
+from dotenv import load_dotenv
+load_dotenv()
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy import func
@@ -104,19 +108,18 @@ async def upload_avatar(
     if not profile:
         raise APIException(code="NOT_FOUND", message="Perfil no encontrado", status_code=404)
         
-    ext = file.filename.split(".")[-1] if "." in file.filename else "png"
-    filename = f"{current_user['user_id']}.{ext}"
-    filepath = os.path.join("apps/api_server/static/avatars", filename)
+    try:
+        # Upload the file directly to Cloudinary
+        upload_result = cloudinary.uploader.upload(
+            file.file, 
+            folder="lummy_avatars",
+            public_id=f"avatar_{current_user['user_id']}",
+            overwrite=True
+        )
+        avatar_url = upload_result.get("secure_url")
+    except Exception as e:
+        raise APIException(code="UPLOAD_ERROR", message=f"Error al subir imagen a Cloudinary: {str(e)}", status_code=500)
     
-    # Asegurarnos de que la carpeta existe antes de guardar
-    os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    
-    with open(filepath, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-        
-    # Construir la URL dinámicamente según el servidor donde esté corriendo (Railway o Local)
-    base_url = str(request.base_url).rstrip("/")
-    avatar_url = f"{base_url}/static/avatars/{filename}"
     profile.avatar_url = avatar_url
     await session.commit()
     
