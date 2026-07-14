@@ -108,10 +108,21 @@ async def upload_avatar(
     if not profile:
         raise APIException(code="NOT_FOUND", message="Perfil no encontrado", status_code=404)
         
+    # Verificar que las credenciales existan
+    if not os.environ.get("CLOUDINARY_URL"):
+        raise APIException(
+            code="CONFIG_ERROR", 
+            message="Falta configurar la variable CLOUDINARY_URL en Railway.", 
+            status_code=500
+        )
+        
     try:
+        # Leer el contenido de forma segura para evitar problemas con SpooledTemporaryFile
+        contents = await file.read()
+        
         # Upload the file directly to Cloudinary
         upload_result = cloudinary.uploader.upload(
-            file.file, 
+            contents, 
             folder="lummy_avatars",
             public_id=f"avatar_{current_user['user_id']}",
             overwrite=True
