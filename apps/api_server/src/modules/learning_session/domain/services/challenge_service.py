@@ -6,7 +6,7 @@ from typing import List, Dict, Any
 from datetime import datetime, timezone
 
 from src.modules.learning_session.infrastructure.persistence.models import (
-    ChallengeSession, SessionQuestion, Question, QuestionOption, SessionAnswer
+    ChallengeSession, SessionQuestion, Question, QuestionOption, SessionAnswer, QuestionTopic
 )
 from src.modules.learning_session.infrastructure.ai.groq_client import generate_poo_questions
 from src.modules.gamification.domain.services.xp_service import XPService
@@ -15,15 +15,56 @@ from src.modules.learning_session.application.dto.challenge_dtos import AnswerRe
 
 XP_PER_CORRECT = 5
 XP_PER_WRONG = 5
+RECENT_TOPICS_WINDOW = 15  # RF-008: excluir temas de las últimas N preguntas
 
 class ChallengeService:
     def __init__(self, session: AsyncSession):
         self.session = session
         self.xp_service = XPService(session)
 
+    async def _fetch_recent_topic_names(self, user_id: uuid.UUID) -> List[str]:
+        """Consulta los nombres de temas de las últimas N preguntas del usuario (RF-008)."""
+        result = await self.session.execute(
+            select(QuestionTopic.topic_name)
+            .join(SessionQuestion, SessionQuestion.topic_id == QuestionTopic.id)
+            .join(SessionAnswer, SessionAnswer.session_question_id == SessionQuestion.id)
+            .filter(SessionAnswer.user_id == user_id)
+            .order_by(SessionAnswer.answered_at.desc())
+            .limit(RECENT_TOPICS_WINDOW)
+        )
+        return list(set(result.scalars().all()))
+
+    async def _resolve_topic_id(self, topic_name: str) -> int:
+        """Busca un topic por nombre o lo crea dinámicamente si no existe."""
+        result = await self.session.execute(
+            select(QuestionTopic).filter(
+                func.lower(QuestionTopic.topic_name) == topic_name.lower()
+            )
+        )
+        existing = result.scalars().first()
+        if existing:
+            return existing.id
+
+        # Crear nuevo topic dinámicamente
+        topic_key = topic_name.lower().replace(" ", "_").replace("(", "").replace(")", "")
+        new_topic = QuestionTopic(
+            topic_key=topic_key,
+            topic_name=topic_name,
+            description=f"Tema generado automáticamente por IA: {topic_name}",
+        )
+        self.session.add(new_topic)
+        await self.session.flush()  # Obtener el ID generado sin commit
+        return new_topic.id
+
     async def start_challenge(self, user_id: uuid.UUID) -> dict:
+        recent_topics = await self._fetch_recent_topic_names(user_id)
+
         try:
-            questions_data = await generate_poo_questions(difficulty="intermedio", user_id=str(user_id))
+            questions_data = await generate_poo_questions(
+                difficulty="intermedio",
+                user_id=str(user_id),
+                recent_topics=recent_topics,
+            )
         except Exception as e:
             raise APIException(code="AI_ERROR", message=f"No se pudieron generar las preguntas: {str(e)}", status_code=502)
             
@@ -46,9 +87,12 @@ class ChallengeService:
         for idx, q_data in enumerate(questions_data):
             # 1. Create Question
             question_id = uuid.uuid4()
+            topic_name = q_data.get("topic", "Programación Orientada a Objetos")
+            topic_id = await self._resolve_topic_id(topic_name)
+
             question_record = Question(
                 id=question_id,
-                topic_id=1,
+                topic_id=topic_id,
                 difficulty=2,
                 stem=q_data.get("stem", q_data.get("text", "")),
                 explanation=q_data.get("explanation", q_data.get("feedback", "")),
@@ -90,7 +134,7 @@ class ChallengeService:
                 question_id=question_id,
                 order_in_session=idx + 1,
                 difficulty_at_delivery=2,
-                topic_id=1
+                topic_id=topic_id,
             )
             self.session.add(session_question)
             

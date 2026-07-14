@@ -27,6 +27,7 @@ async def test_should_start_challenge_and_create_session(mock_generate, challeng
     mock_generate.return_value = [
         {
             "stem": "Question 1",
+            "topic": "Polimorfismo",
             "options": [{"key": "A", "text": "Opt A"}, {"key": "B", "text": "Opt B"}],
             "correct_option_key": "A"
         }
@@ -35,12 +36,18 @@ async def test_should_start_challenge_and_create_session(mock_generate, challeng
     mock_profile = UserProfile(user_id=user_id, current_level_id=1, xp_total=10)
     challenge_service.xp_service.get_or_create_profile.return_value = mock_profile
     
+    # Mock RF-008 methods
+    challenge_service._fetch_recent_topic_names = AsyncMock(return_value=[])
+    challenge_service._resolve_topic_id = AsyncMock(return_value=1)
+    
     # Act
     result = await challenge_service.start_challenge(user_id)
     
     # Assert
     assert mock_generate.called
     assert challenge_service.xp_service.get_or_create_profile.called
+    assert challenge_service._fetch_recent_topic_names.called
+    assert challenge_service._resolve_topic_id.called
     assert mock_session.add.call_count == 5
     assert mock_session.commit.called
     assert "session_id" in result
@@ -53,6 +60,7 @@ async def test_should_fail_start_challenge_when_ai_fails(mock_generate, challeng
     # Arrange
     user_id = uuid.uuid4()
     mock_generate.side_effect = Exception("AI Timeout")
+    challenge_service._fetch_recent_topic_names = AsyncMock(return_value=[])
     
     # Act & Assert
     with pytest.raises(APIException) as exc:
