@@ -19,7 +19,14 @@ class AuthRepository {
   AuthRepository(this._dio, this._storage);
 
   Future<void> login(LoginRequest request) async {
-    final response = await _dio.post('/auth/login', data: request.toJson());
+    final response = await _dio.post(
+      '/auth/login',
+      data: {
+        'username': request.email, // FastAPI OAuth2 espera 'username'
+        'password': request.password,
+      },
+      options: Options(contentType: Headers.formUrlEncodedContentType),
+    );
     final authData = AuthResponse.fromJson(response.data);
     await _storage.write(key: 'access_token', value: authData.accessToken);
     await _storage.write(key: 'refresh_token', value: authData.refreshToken);

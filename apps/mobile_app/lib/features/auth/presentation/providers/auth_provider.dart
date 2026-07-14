@@ -25,9 +25,14 @@ class AuthNotifier extends StateNotifier<AuthState> {
       if (e.response?.statusCode == 401) {
         msg = 'Correo o contraseña incorrectos.';
       } else if (e.response?.data != null && e.response?.data is Map) {
-        msg = e.response?.data['detail'] ??
-            e.message ??
-            'Ocurrió un error inesperado';
+        final detail = e.response?.data['detail'];
+        if (detail is String) {
+          msg = detail;
+        } else if (detail is List && detail.isNotEmpty) {
+          msg = detail[0]['msg'] ?? 'Error de validación';
+        } else {
+          msg = e.message ?? 'Ocurrió un error inesperado';
+        }
       }
       state = AuthState(isLoading: false, error: msg);
       return false;

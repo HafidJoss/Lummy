@@ -35,6 +35,7 @@ class UserProfile(Base):
     total_answered = Column(Integer, nullable=False, default=0)
     total_correct = Column(Integer, nullable=False, default=0)
     current_streak = Column(Integer, nullable=False, default=0)
+    dark_mode = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
 

@@ -21,6 +21,17 @@ import src.shared.infrastructure.messaging.models
 
 config = context.config
 
+from dotenv import load_dotenv
+env_path = os.path.join(project_root, "apps", "api_server", ".env")
+load_dotenv(env_path)
+
+db_url = os.environ.get("DATABASE_URL")
+if db_url:
+    # Si la URL usa asyncpg, la pasamos a un driver síncrono que alembic pueda usar (psycopg2)
+    if db_url.startswith("postgresql+asyncpg://"):
+        db_url = db_url.replace("postgresql+asyncpg://", "postgresql://", 1)
+    config.set_main_option("sqlalchemy.url", db_url)
+
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
