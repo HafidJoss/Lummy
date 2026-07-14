@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from src.modules.learning_session.infrastructure.persistence.models import (
     ChallengeSession, SessionQuestion, Question, QuestionOption, SessionAnswer
 )
-from src.modules.learning_session.infrastructure.ai.gemini_client import generate_poo_questions
+from src.modules.learning_session.infrastructure.ai.groq_client import generate_poo_questions
 from src.modules.gamification.domain.services.xp_service import XPService
 from src.shared.infrastructure.api.exceptions import APIException
 from src.modules.learning_session.application.dto.challenge_dtos import AnswerRequest, AnswerResponse
